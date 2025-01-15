@@ -16,24 +16,12 @@
         <side>
             <nav>
                 <ul>
-                    <li>
-                        <a href="#">Главная  страница</a>
-                    </li>
-                    <li>
-                        <a href="#">Общая статистика</a>
-                    </li>
-                    <li>
-                        <a href="#">Востребованность</a>
-                    </li>
-                    <li>
-                        <a href="#">География</a>
-                    </li>
-                    <li>
-                        <a href="#">Навыки</a>
-                    </li>
-                    <li>
-                        <a href="#">Последние вакансии</a>
-                    </li>
+                    <li><a href="{% url 'main' %}">Главная  страница</a></li>
+                    <li><a href="{% url 'statistics' %}">Общая статистика</a></li>
+                    <li><a href="{% url 'relevance' %}">Востребованность</a></li>
+                    <li><a href="{% url 'geography' %}">География</a></li>
+                    <li><a href="{% url 'skills' %}">Навыки</a></li>
+                    <li><a href="{% url 'last_vacs' %}">Последние вакансии</a></li>
                 </ul>
             </nav>
         </side>
