@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}<title>template</title>{% endblock %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/template.css' %}">
+</head>
+<body>
+    <header>
+        <p class="logo">C++ Prog</p>
+    </header>
+
+    <main>
+        <side>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">Главная  страница</a>
+                    </li>
+                    <li>
+                        <a href="#">Общая статистика</a>
+                    </li>
+                    <li>
+                        <a href="#">Востребованность</a>
+                    </li>
+                    <li>
+                        <a href="#">География</a>
+                    </li>
+                    <li>
+                        <a href="#">Навыки</a>
+                    </li>
+                    <li>
+                        <a href="#">Последние вакансии</a>
+                    </li>
+                </ul>
+            </nav>
+        </side>
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>Жилин Артём Григорьевич РИ-230912</p>
+    </footer>
+</body>
+
+</html>

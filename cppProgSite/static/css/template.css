@@ -1,0 +1,135 @@
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: #FFD65A;
+    width: 100%;
+    height: 100px;
+}
+
+.logo {
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+    text-align: center;
+    font-family: cursive;
+    font-size: 48px;
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+main {
+    display:flex;
+    height: auto;
+    width: 100%;
+}
+
+main side {
+
+}
+
+nav {
+
+}
+
+nav ul {
+    margin: 20px;
+    width: 230px;
+    background: #16C47F;
+    padding: 20px 8px;
+
+    font-size: 20px;
+    text-align: center;
+    align-content: space-between;
+
+    list-style-type: none;
+}
+
+nav li {
+    margin: 0;
+    padding: 10px;
+}
+
+nav li a {
+    color: white;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+nav li a:hover {
+    color: #C0EBA6;
+}
+
+content {
+    margin: 20px 0 20px 5%;
+    padding: 20px 30px;
+    width: 60%;
+    height: auto;
+    background: #B4C5E4;
+    align-content: center;
+    font-family: 'Arial';
+}
+
+content img {
+    display: block;
+    margin: 30px auto;
+}
+
+content h1 {
+    text-align:center;
+}
+
+content b {
+    margin: 0;
+    margin-top: 20px;
+    font-size:20px;
+}
+
+content p {
+    margin: 5px 0 20px 15px;
+}
+
+content ol p {
+    margin: 0 0 5px 0;
+}
+
+content ol li {
+    margin-bottom: 3px;
+}
+
+content .perspective p {
+    margin-bottom: 5px;
+}
+
+content .privilege p {
+    margin-bottom: 5px;
+}
+
+content .difficult p {
+    margin-bottom: 5px;
+}
+
+content ul {
+    margin: 0 0 20px 0;
+}
+
+footer {
+    background: #3C3744;
+    width: 100%;
+    height: 100px;
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
+    padding-top: 25px;
+    color:white;
+    font-size: 48px;
+    font-family: sans-serif;
+    text-align: center;
+}
