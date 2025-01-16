@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     {% block title %}<title>template</title>{% endblock %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/template.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'cppprog/css/template.css' %}">
     {% block links %}{% endblock %}
 </head>
 <body>
@@ -16,7 +16,7 @@
         <side>
             <nav>
                 <ul>
-                    <li><a href="{% url 'main' %}">Главная  страница</a></li>
+                    <li><a href="{% url 'index' %}">Главная  страница</a></li>
                     <li><a href="{% url 'statistics' %}">Общая статистика</a></li>
                     <li><a href="{% url 'relevance' %}">Востребованность</a></li>
                     <li><a href="{% url 'geography' %}">География</a></li>
