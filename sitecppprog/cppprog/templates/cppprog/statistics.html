@@ -1,10 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'cppprog/template.html' %}
+{% block title %}<title>C++ Prog: Общая статистика</title>{% endblock %}
+{% load static %}
 
-</body>
-</html>
+{% block links %}
+<link type="text/css" rel="stylesheet" href="{% static 'cppprog/css/statistics.css' %}">
+{% endblock %}
+
+{% block content %}
+<content>
+    <h1>Общая статистика</h1>
+    <div class="statystics">
+        <h2 class="title">Динамика уровня зарплат по годам</h2>
+        <div class="data">
+            <table class="table">
+            <caption class="caption">Динамика уровня зарплат по годам</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Год</th>
+                    <th scope="col">Зарплата в рублях</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for instance in salary_dynamics_of_years %}
+                <tr>
+                    <td>
+                        {{ instance.fields.year }}
+                    </td>
+                    <td>
+                        {{ instance.fields.salary }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+            <img class="plot" src="/media/SalaryDynamicsOfYears.png"/>
+        </div>
+    </div>
+    <div class="statystics">
+        <h2 class="title">Динамика количества вакансий по годам</h2>
+        <div class="data">
+            <table class="table">
+            <caption class="caption">Динамика количества вакансий по годам</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Год</th>
+                    <th scope="col">Вакансий</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for instance in count_dynamics_of_years %}
+                <tr>
+                    <td>
+                        {{ instance.fields.year }}
+                    </td>
+                    <td>
+                        {{ instance.fields.vacancies_number }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+            <img class="plot" src="/media/CountDynamicsOfYears.png"/>
+        </div>
+    </div>
+    <div class="statystics">
+        <h2 class="title">Уровень зарплат по городам</h2>
+        <div class="data">
+            <table class="table">
+            <caption class="caption">Уровень зарплат по городам</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Город</th>
+                    <th scope="col">Зарплата в рублях</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for instance in salary_dynamics_of_city %}
+                <tr>
+                    <td>
+                        {{ instance.fields.city }}
+                    </td>
+                    <td>
+                        {{ instance.fields.salary }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+            <img class="plot" src="/media/SalaryDynamicsOfCity.png"/>
+        </div>
+    </div>
+    <div class="statystics">
+        <h2 class="title">Доля вакансий по городам</h2>
+        <div class="data">
+            <table class="table">
+            <caption class="caption">Доля вакансий по городам</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Город</th>
+                    <th scope="col">Доля, %</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for instance in rate_of_city %}
+                <tr>
+                    <td>
+                        {{ instance.fields.city }}
+                    </td>
+                    <td>
+                        {{ instance.fields.rate }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+            <img class="plot" src="/media/RateOfCity.png"/>
+        </div>
+    </div>
+</content>
+{% endblock %}

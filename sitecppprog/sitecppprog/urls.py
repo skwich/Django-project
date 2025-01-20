@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls.static import static
 
 from cppprog import views
+from sitecppprog import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,3 +30,5 @@ urlpatterns = [
     path('skills/', views.skills, name='skills'),
     path('last_vacs/', views.last_vacs, name='last_vacs')
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
