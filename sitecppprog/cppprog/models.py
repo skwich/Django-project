@@ -90,7 +90,7 @@ class VacancyCountDynamicsOfYear(models.Model):
     class Meta:
         verbose_name = "Динамика количества вакансий по годам для профессии C++ программист"
         verbose_name_plural = "Динамика количества вакансий по годам для профессии C++ программист"
-        ordering = ['vacancies_number']
+        ordering = ['year', 'vacancies_number']
 
 
 class VacancySalaryDynamicsOfCity(models.Model):
