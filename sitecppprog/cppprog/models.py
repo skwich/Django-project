@@ -119,6 +119,20 @@ class VacancyRateOfCity(models.Model):
         ordering = ['-rate']
 
 
+class VacancyTop20Skills(models.Model):
+    year = models.IntegerField("Год")
+    skill = models.CharField("Навык", max_length=255)
+    count = models.PositiveIntegerField("Количество")
+
+    def __str__(self):
+        return f"{self.year} - {self.skill} - {self. count}"
+
+    class Meta:
+        verbose_name = "ТОП-20 навыков по годам для профессии C++ программист"
+        verbose_name_plural = "ТОП-20 навыков по годам для профессии C++ программист"
+        ordering = ['-year', '-count']
+
+
 # Images Model
 class ImagesModel(models.Model):
     name = models.CharField("Название изображения", max_length=255)

@@ -13,13 +13,16 @@ def statistics(request):
     salary_dynamics_of_city = serializers.serialize("python", SalaryDynamicsOfCity.objects.all())
     rate_of_city = serializers.serialize("python", RateOfCity.objects.all())
     top20_skills = serializers.serialize("python", Top20Skills.objects.all())
+    years_of_top20 = list(set(Top20Skills.objects.all().values_list('year', flat=True)))
+    years_of_top20.sort(reverse=True)
 
     context = {
         'salary_dynamics_of_years': salary_dynamics_of_years,
         'count_dynamics_of_years': count_dynamics_of_years,
         'salary_dynamics_of_city': salary_dynamics_of_city,
         'rate_of_city': rate_of_city,
-        'top20_skills': top20_skills
+        'top20_skills': top20_skills,
+        'years_of_top20': years_of_top20
     }
     return render(request, 'cppprog/statistics.html', context=context)
 
