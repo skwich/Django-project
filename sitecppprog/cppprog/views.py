@@ -24,7 +24,14 @@ def statistics(request):
     return render(request, 'cppprog/statistics.html', context=context)
 
 def relevance(request):
-    return render(request, 'cppprog/relevance.html')
+    salary_dynamics_of_years = serializers.serialize("python", VacancySalaryDynamicsOfYear.objects.all())
+    count_dynamics_of_years = serializers.serialize("python", VacancyCountDynamicsOfYear.objects.all())
+
+    context = {
+        'salary_dynamics_of_years': salary_dynamics_of_years,
+        'count_dynamics_of_years': count_dynamics_of_years,
+    }
+    return render(request, 'cppprog/relevance.html', context=context)
 
 def geography(request):
     return render(request, 'cppprog/geography.html')

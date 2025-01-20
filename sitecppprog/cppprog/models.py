@@ -60,6 +60,30 @@ class Top20Skills(models.Model):
         verbose_name_plural = "ТОП-20 навыков по годам"
 
 
+class VacancySalaryDynamicsOfYear(models.Model):
+    year = models.IntegerField("Год")
+    salary = models.PositiveIntegerField("Зарплата в рублях")
+
+    def __str__(self):
+        return str(self.year)
+
+    class Meta:
+        verbose_name = "Динамика уровня зарплат по годам для профессии C++ программист"
+        verbose_name_plural = "Динамика уровня зарплат по годам для профессии C++ программист"
+
+
+class VacancyCountDynamicsOfYear(models.Model):
+    year = models.IntegerField("Год")
+    vacancies_number = models.PositiveIntegerField("Вакансий")
+
+    def __str__(self):
+        return str(self.year)
+
+    class Meta:
+        verbose_name = "Динамика количества вакансий по годам для профессии C++ программист"
+        verbose_name_plural = "Динамика количества вакансий по годам для профессии C++ программист"
+
+
 # Images Model
 class ImagesModel(models.Model):
     name = models.CharField("Название изображения", max_length=255)
