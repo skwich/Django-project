@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import *
+
+
+admin.site.register(SalaryDynamicsOfYear)
+admin.site.register(CountDynamicsOfYear)
+admin.site.register(SalaryDynamicsOfCity)
+admin.site.register(RateOfCity)
+admin.site.register(ImagesModel)
