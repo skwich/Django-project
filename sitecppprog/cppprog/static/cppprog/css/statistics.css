@@ -1,10 +1,21 @@
 content {
     margin: 20px 0 20px 5%;
-    padding: 20px 30px;
+
     width: 60%;
     height: auto;
-    background: #B4C5E4;
     font-family: 'Arial';
+}
+
+.general {
+    background: #B4C5E4;
+    padding: 20px 30px;
+    padding-bottom: 60px;
+}
+
+.mosttop {
+    background: #B4C5E4;
+    padding: 20px 30px;
+    padding-bottom: 60px;
 }
 
 h1 {
@@ -73,4 +84,12 @@ tfoot th {
 
 tfoot td {
   font-weight: bold;
+}
+
+div.general {
+    margin-bottom: 40px;
+}
+
+div.mosttop {
+    margin-top: 40px;
 }

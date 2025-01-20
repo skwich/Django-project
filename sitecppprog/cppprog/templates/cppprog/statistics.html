@@ -8,113 +8,146 @@
 
 {% block content %}
 <content>
-    <h1>Общая статистика</h1>
-    <div class="statystics">
-        <h2 class="title">Динамика уровня зарплат по годам</h2>
-        <div class="data">
-            <table class="table">
-            <caption class="caption">Динамика уровня зарплат по годам</caption>
-            <thead>
-                <tr>
-                    <th scope="col">Год</th>
-                    <th scope="col">Зарплата в рублях</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for instance in salary_dynamics_of_years %}
-                <tr>
-                    <td>
-                        {{ instance.fields.year }}
-                    </td>
-                    <td>
-                        {{ instance.fields.salary }}
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-            <img class="plot" src="/media/SalaryDynamicsOfYears.png"/>
+    <div class="general">
+        <h1>Общая статистика</h1>
+        <div class="statystics">
+            <h2 class="title">Динамика уровня зарплат по годам</h2>
+            <div class="data">
+                <table class="table">
+                <caption class="caption">Динамика уровня зарплат по годам</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Год</th>
+                        <th scope="col">Зарплата в рублях</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for instance in salary_dynamics_of_years %}
+                    <tr>
+                        <td>
+                            {{ instance.fields.year }}
+                        </td>
+                        <td>
+                            {{ instance.fields.salary }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+                <img class="plot" src="/media/SalaryDynamicsOfYears.png"/>
+            </div>
+        </div>
+        <div class="statystics">
+            <h2 class="title">Динамика количества вакансий по годам</h2>
+            <div class="data">
+                <table class="table">
+                <caption class="caption">Динамика количества вакансий по годам</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Год</th>
+                        <th scope="col">Вакансий</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for instance in count_dynamics_of_years %}
+                    <tr>
+                        <td>
+                            {{ instance.fields.year }}
+                        </td>
+                        <td>
+                            {{ instance.fields.vacancies_number }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+                <img class="plot" src="/media/CountDynamicsOfYears.png"/>
+            </div>
+        </div>
+        <div class="statystics">
+            <h2 class="title">Уровень зарплат по городам</h2>
+            <div class="data">
+                <table class="table">
+                <caption class="caption">Уровень зарплат по городам</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Город</th>
+                        <th scope="col">Зарплата в рублях</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for instance in salary_dynamics_of_city %}
+                    <tr>
+                        <td>
+                            {{ instance.fields.city }}
+                        </td>
+                        <td>
+                            {{ instance.fields.salary }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+                <img class="plot" src="/media/SalaryDynamicsOfCity.png"/>
+            </div>
+        </div>
+        <div class="statystics">
+            <h2 class="title">Доля вакансий по городам</h2>
+            <div class="data">
+                <table class="table">
+                <caption class="caption">Доля вакансий по городам</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Город</th>
+                        <th scope="col">Доля, %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for instance in rate_of_city %}
+                    <tr>
+                        <td>
+                            {{ instance.fields.city }}
+                        </td>
+                        <td>
+                            {{ instance.fields.rate }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+                <img class="plot" src="/media/RateOfCity.png"/>
+            </div>
         </div>
     </div>
-    <div class="statystics">
-        <h2 class="title">Динамика количества вакансий по годам</h2>
-        <div class="data">
-            <table class="table">
-            <caption class="caption">Динамика количества вакансий по годам</caption>
-            <thead>
-                <tr>
-                    <th scope="col">Год</th>
-                    <th scope="col">Вакансий</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for instance in count_dynamics_of_years %}
-                <tr>
-                    <td>
-                        {{ instance.fields.year }}
-                    </td>
-                    <td>
-                        {{ instance.fields.vacancies_number }}
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-            <img class="plot" src="/media/CountDynamicsOfYears.png"/>
-        </div>
-    </div>
-    <div class="statystics">
-        <h2 class="title">Уровень зарплат по городам</h2>
-        <div class="data">
-            <table class="table">
-            <caption class="caption">Уровень зарплат по городам</caption>
-            <thead>
-                <tr>
-                    <th scope="col">Город</th>
-                    <th scope="col">Зарплата в рублях</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for instance in salary_dynamics_of_city %}
-                <tr>
-                    <td>
-                        {{ instance.fields.city }}
-                    </td>
-                    <td>
-                        {{ instance.fields.salary }}
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-            <img class="plot" src="/media/SalaryDynamicsOfCity.png"/>
-        </div>
-    </div>
-    <div class="statystics">
-        <h2 class="title">Доля вакансий по городам</h2>
-        <div class="data">
-            <table class="table">
-            <caption class="caption">Доля вакансий по городам</caption>
-            <thead>
-                <tr>
-                    <th scope="col">Город</th>
-                    <th scope="col">Доля, %</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for instance in rate_of_city %}
-                <tr>
-                    <td>
-                        {{ instance.fields.city }}
-                    </td>
-                    <td>
-                        {{ instance.fields.rate }}
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-            <img class="plot" src="/media/RateOfCity.png"/>
+
+    <div class="general mosttop">
+        <h1>ТОП-20 навыков по годам</h1>
+        <div class="statystics">
+            <h2 class="title">ТОП-20 навыков в 2024 году</h2>
+            <div class="data">
+                <table class="table">
+                <caption class="caption">Доля вакансий по городам</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Город</th>
+                        <th scope="col">Доля, %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for instance in rate_of_city %}
+                    <tr>
+                        <td>
+                            {{ instance.fields.city }}
+                        </td>
+                        <td>
+                            {{ instance.fields.rate }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+                <img class="plot" src="/media/RateOfCity.png"/>
+            </div>
         </div>
     </div>
 </content>
