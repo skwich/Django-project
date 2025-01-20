@@ -34,7 +34,14 @@ def relevance(request):
     return render(request, 'cppprog/relevance.html', context=context)
 
 def geography(request):
-    return render(request, 'cppprog/geography.html')
+    salary_dynamics_of_city = serializers.serialize("python", VacancySalaryDynamicsOfCity.objects.all())
+    rate_of_city = serializers.serialize("python", VacancyRateOfCity.objects.all())
+
+    context = {
+        'salary_dynamics_of_city': salary_dynamics_of_city,
+        'rate_of_city': rate_of_city
+    }
+    return render(request, 'cppprog/geography.html', context=context)
 
 def skills(request):
     return render(request, 'cppprog/skills.html')

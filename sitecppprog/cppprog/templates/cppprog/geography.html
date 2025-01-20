@@ -1,10 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'cppprog/template.html' %}
+{% block title %}<title>C++ Prog: География</title>{% endblock %}
+{% load static %}
 
-</body>
-</html>
+{% block links %}
+<link type="text/css" rel="stylesheet" href="{% static 'cppprog/css/statistics.css' %}">
+{% endblock %}
+
+{% block content %}
+<content>
+    <h1>География</h1>
+    <div class="statystics">
+        <h2 class="title">Уровень зарплат по городам для профессии C++ программист</h2>
+        <div class="data">
+            <table class="table">
+            <caption class="caption">Уровень зарплат по городам для профессии C++ программист</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Город</th>
+                    <th scope="col">Зарплата в рублях</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for instance in salary_dynamics_of_city %}
+                <tr>
+                    <td>
+                        {{ instance.fields.city }}
+                    </td>
+                    <td>
+                        {{ instance.fields.salary }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+            <img class="plot" src="/media/VacancySalaryDynamicsOfCity.png"/>
+        </div>
+    </div>
+    <div class="statystics">
+        <h2 class="title">Доля вакансий по городам для профессии C++ программист</h2>
+        <div class="data">
+            <table class="table">
+            <caption class="caption">Доля вакансий по городам для профессии C++ программист</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Город</th>
+                    <th scope="col">Доля, %</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for instance in rate_of_city %}
+                <tr>
+                    <td>
+                        {{ instance.fields.city }}
+                    </td>
+                    <td>
+                        {{ instance.fields.rate }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+            <img class="plot" src="/media/VacancyRateOfCity.png"/>
+        </div>
+    </div>
+</content>
+{% endblock %}

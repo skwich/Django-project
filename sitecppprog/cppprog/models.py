@@ -34,6 +34,7 @@ class SalaryDynamicsOfCity(models.Model):
     class Meta:
         verbose_name = "Уровень зарплат по городам"
         verbose_name_plural = "Уровень зарплат по городам"
+        ordering = ['-salary']
 
 
 class RateOfCity(models.Model):
@@ -46,6 +47,7 @@ class RateOfCity(models.Model):
     class Meta:
         verbose_name = "Доля вакансий по городам"
         verbose_name_plural = "Доля вакансий по городам"
+        ordering = ['-rate']
 
 
 class Top20Skills(models.Model):
@@ -59,7 +61,7 @@ class Top20Skills(models.Model):
         verbose_name = "ТОП-20 навыков по годам"
         verbose_name_plural = "ТОП-20 навыков по годам"
 
-
+# C++ prog
 class VacancySalaryDynamicsOfYear(models.Model):
     year = models.IntegerField("Год")
     salary = models.PositiveIntegerField("Зарплата в рублях")
@@ -82,6 +84,32 @@ class VacancyCountDynamicsOfYear(models.Model):
     class Meta:
         verbose_name = "Динамика количества вакансий по годам для профессии C++ программист"
         verbose_name_plural = "Динамика количества вакансий по годам для профессии C++ программист"
+
+
+class VacancySalaryDynamicsOfCity(models.Model):
+    city = models.CharField("Город", max_length=255)
+    salary = models.PositiveIntegerField("Зарплата в рублях")
+
+    def __str__(self):
+        return str(self.city)
+
+    class Meta:
+        verbose_name = "Уровень зарплат по городам для профессии C++ программист"
+        verbose_name_plural = "Уровень зарплат по городам для профессии C++ программист"
+        ordering = ['-salary']
+
+
+class VacancyRateOfCity(models.Model):
+    city = models.CharField("Город", max_length=255)
+    rate = models.FloatField("Доля")
+
+    def __str__(self):
+        return str(self.city)
+
+    class Meta:
+        verbose_name = "Доля вакансий по городам для профессии C++ программист"
+        verbose_name_plural = "Доля вакансий по городам для профессии C++ программист"
+        ordering = ['-rate']
 
 
 # Images Model
