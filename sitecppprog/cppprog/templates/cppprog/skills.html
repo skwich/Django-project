@@ -1,10 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'cppprog/template.html' %}
+{% block title %}<title>C++ Prog: Навыки</title>{% endblock %}
+{% load static %}
 
-</body>
-</html>
+{% block links %}
+<link type="text/css" rel="stylesheet" href="{% static 'cppprog/css/statistics.css' %}">
+{% endblock %}
+
+{% block content %}
+<content>
+    <div class="general">
+        <h1>ТОП-20 навыков по годам для профессии C++ программист</h1>
+        {% for year in years_of_top20 %}
+        <div class="statystics">
+            <h2 class="title">ТОП-20 навыков в {{ year }} году для профессии C++ программист</h2>
+            <div class="data">
+                <table class="table">
+                <caption class="caption">ТОП-20 навыков в {{ year }} году для профессии C++ программист</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Навык</th>
+                        <th scope="col">Заинтересованность</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for mosttop in top20_skills %}
+                    {% if year == mosttop.fields.year %}
+                        <tr>
+                            <td>
+                                {{ mosttop.fields.skill }}
+                            </td>
+                            <td>
+                                {{ mosttop.fields.count }}
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                </tbody>
+            </table>
+                <img class="plot" width="600px" height="350px" src="/media/vmosttop{{ year }}.png"/>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</content>
+{% endblock %}

@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'cppprog/template.html' %}
+{% block title %}<title>C++ Prog: Последние вакансии</title>{% endblock %}
+{% load static %}
 
-</body>
-</html>
+{% block links %}
+<link type="text/css" rel="stylesheet" href="{% static 'cppprog/css/statistics.css' %}">
+<link type="text/css" rel="stylesheet" href="{% static 'cppprog/css/last_vacs.css' %}">
+{% endblock %}
+
+{% block content %}
+<content>
+    <div class="general last_vacs">
+        <div class="text">
+            <h1>Ой-Ой...</h1>
+            <h2>Мы еще не готовы показать Вам эту страницу.</h2>
+            <h2>Она находиться в активном производстве 😁</h2>
+        </div>
+    </div>
+    <img class="gif" width="350px" src="{% static 'cppprog/images/last_vacs.gif' %}"/>
+</content>
+{% endblock %}

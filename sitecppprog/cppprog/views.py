@@ -47,7 +47,15 @@ def geography(request):
     return render(request, 'cppprog/geography.html', context=context)
 
 def skills(request):
-    return render(request, 'cppprog/skills.html')
+    top20_skills = serializers.serialize("python", VacancyTop20Skills.objects.all())
+    years_of_top20 = list(set(VacancyTop20Skills.objects.all().values_list('year', flat=True)))
+    years_of_top20.sort(reverse=True)
+
+    context = {
+        'top20_skills': top20_skills,
+        'years_of_top20': years_of_top20
+    }
+    return render(request, 'cppprog/skills.html', context=context)
 
 def last_vacs(request):
     return render(request, 'cppprog/last_vacs.html')

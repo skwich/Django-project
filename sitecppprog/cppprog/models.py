@@ -10,7 +10,7 @@ class SalaryDynamicsOfYear(models.Model):
     class Meta:
         verbose_name = "Динамика уровня зарплат по годам"
         verbose_name_plural = "Динамика уровня зарплат по годам"
-        ordering = ['salary']
+        ordering = ['year', 'salary']
 
 
 class CountDynamicsOfYear(models.Model):
@@ -23,7 +23,7 @@ class CountDynamicsOfYear(models.Model):
     class Meta:
         verbose_name = "Динамика количества вакансий по годам"
         verbose_name_plural = "Динамика количества вакансий по годам"
-        ordering = ['vacancies_number']
+        ordering = ['year', 'vacancies_number']
 
 
 class SalaryDynamicsOfCity(models.Model):
